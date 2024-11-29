@@ -2,6 +2,7 @@ import Logo from '../logo';
 import OpcaoHearder from '../opcaoHeader';
 import IconesHeader from '../iconesHeader';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const HeaderContainer = styled.header`
     background-color: #FFF;
@@ -10,13 +11,15 @@ const HeaderContainer = styled.header`
     align-items: center;
 `
 
-function Header(){
-    return(
+function Header() {
+    return (
         <HeaderContainer>
-          <Logo/>
-          <OpcaoHearder></OpcaoHearder>
-          <IconesHeader></IconesHeader>
-      </HeaderContainer>
+            <Link to ='/'>
+                <Logo />
+            </Link>
+            <OpcaoHearder></OpcaoHearder>
+            <IconesHeader></IconesHeader>
+        </HeaderContainer>
     )
 }
 

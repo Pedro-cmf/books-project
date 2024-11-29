@@ -4,14 +4,14 @@ import styled from 'styled-components';
 const LogoContainer = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 1%;
     
 `
 const LogoImage = styled.img`
-    margin-right: 10px;
+    margin-right: 17px;
 `
-const tituloSite = styled.p`
+const TituloSite = styled.p`
     color: black;
+    margin-right: 10px;
     
 `
 function Logo(){
@@ -21,7 +21,7 @@ function Logo(){
             src={logo} 
             alt='logo'
             ></LogoImage>
-            <tituloSite><strong>Alura</strong> Books</tituloSite>
+            <TituloSite><strong>CesarBooks</strong></TituloSite>
         </LogoContainer>
     )
 }

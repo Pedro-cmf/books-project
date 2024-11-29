@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import {Titulo} from "../Titulo"
 import { livros } from "./dadosUltimosLancamentos";
-import CardRecomenda from "../../cardRecomenda";
+import CardRecomenda from "../cardRecomenda";
 import imagemLivro from "../../../imagens/livro2.png"
 
 const UltimosLancamentosContainer = styled.section`
@@ -9,13 +9,17 @@ const UltimosLancamentosContainer = styled.section`
     padding-bottom: 20px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 `
 
 
 const NovosLivrosContainer = styled.div`
-    margin-top: 30px;
-    display: flex;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 70px;
     width: 100%;
+    max-width: 70%;
     justify-content: center;
     cursor: pointer;
 `
@@ -41,6 +45,7 @@ function UltimosLancamentos(){
                 subtitulo="Angular 11"
                 descricao="Construindo uma aplicação com a plataforma Google"
                 img= {imagemLivro}
+                marginTop= '2%'
             />
               
         </UltimosLancamentosContainer>

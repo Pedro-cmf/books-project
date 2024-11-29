@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Titulo } from "../principal/Titulo";
+import { Titulo } from "../Titulo";
 
 const Card = styled.div`
    align-items: center;
@@ -9,9 +9,10 @@ const Card = styled.div`
    display: flex;
    margin: 0 auto;
    max-width: 600px;
-   padding: 25px 20px;
+   padding: 20px;
    justify-content: space-around;
    width: 100%; 
+   margin-top: ${props => props.marginTop || '0px'};
 `
 const Botao = styled.button`
    background-color: #EB9B00;
@@ -40,12 +41,12 @@ const ImgLivro = styled.img`
    width: 150px;
 `
 
-function CardRecomenda({titulo, subtitulo, descricao, img}){
+function CardRecomenda({titulo, subtitulo, descricao, img, marginTop}){
     return (
-        <Card>
+        <Card marginTop={marginTop}>
             <div>
                 <Titulo
-                    tamanhoFonte="16px"
+                    tamanhoFonte="26px"
                     cor="#EB9B00"
                     alinhamento="left"
                 >{titulo}</Titulo>
