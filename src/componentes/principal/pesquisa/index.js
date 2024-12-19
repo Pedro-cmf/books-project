@@ -13,7 +13,8 @@ const PesquisaContainer = styled.section`
     height: 55%;
     width: 100%;
     display: grid;
-    justify-content: center;
+    justify-items: center;
+    align-items: start;
 `;
 
 const Titulo = styled.h2`
@@ -62,6 +63,16 @@ function Pesquisa() {
         }
     }
 
+    function handleKeyDown(event) {
+        if (event.key === 'Enter') {
+            const textoDigitado = event.target.value.toLowerCase();
+            const resultadoPesquisa = livros.filter(livro =>
+                livro.nome.toLowerCase().includes(textoDigitado)
+            );
+            setLivrosPesquisados(resultadoPesquisa);
+        }
+    }
+
     async function insertFavorito(id){
         await postFavorito(id)
         alert(`Livro de id:${id} inserido com sucesso !`);
@@ -73,14 +84,7 @@ function Pesquisa() {
             <Subtitulo>Encontre seu livro na nossa estante.</Subtitulo>
             <Input
                 placeholder="Escreva sua próxima leitura"
-                onBlur={evento => {
-                    console.log("Evento onBlur disparado"); // Adicione esta linha para verificar se o evento está sendo disparado
-                    const textoDigitado = evento.target.value.toLowerCase();
-                    const resultadoPesquisa = livros.filter(livro =>
-                        livro.nome.toLowerCase().includes(textoDigitado)
-                    );
-                    setLivrosPesquisados(resultadoPesquisa);
-                }}
+                onKeyDown={handleKeyDown}
             />
             {livrosPesquisados.map((livro, index) => (
                 <Resultado key={index} onClick={() => insertFavorito(livro.id)}>
